@@ -6,8 +6,8 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"time"
 	"os"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
@@ -90,8 +90,8 @@ func main() {
 
 	router.Mount("/v1", v1Router)
 	srv := &http.Server{
-		Addr:    ":" + port,
-		Handler: router,
+		Addr:              ":" + port,
+		Handler:           router,
 		ReadHeaderTimeout: 5 * time.Second, // prevents Slowloris attacks
 	}
 
