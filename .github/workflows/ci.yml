@@ -1,9 +1,12 @@
-name: ci
+name: Tests
 
 on:
+  push:
+    branches:
+      - "**"  # allow all branches
   pull_request:
-    branches: [main]
-
+    branches:
+      - main
 jobs:
   tests:
     name: Tests
