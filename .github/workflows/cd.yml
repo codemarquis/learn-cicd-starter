@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  Deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,11 +23,11 @@ jobs:
       - name: Build production binary
         run: scripts/buildprod.sh
 
-      # Set up Gcloud CLI
+      # Step 4: Set up Gcloud CLI
       - name: Set up gcloud CLI
       - uses: google-github-actions/setup-gcloud@v2
       - with: 
-	  project_id: 
+	  project_id: notely-468408 
 	  service_account_key: ${{ secrets.GCP_CREDENTIALS }}
           export_default_credentials: true
 
