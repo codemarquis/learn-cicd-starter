@@ -25,16 +25,18 @@ jobs:
 
       # Step 4: Set up Gcloud CLI
       - name: Set up gcloud CLI
-      - uses: google-github-actions/setup-gcloud@v2
-      - with: 
-	  project_id: notely-468408 
-	  service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: notely-468408
+          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
           export_default_credentials: true
 
+      # Step 5: Configure Docker for Artifact Registry
       - name: Configure Docker for Artifact Registry
-      - run: gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
 
+      # Step 6: Build and push Docker image
       - name: Build and push Docker image
-      - run: |
+        run: |
           gcloud builds submit \
-            --tag us-central1-docker.pkg.dev/notely-468408/notely-ar-repo:latest .
+            --tag us-central1-docker.pkg.dev/notely-468408/notely-ar-repo/notely:latest .
