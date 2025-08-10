@@ -26,4 +26,9 @@ go build -o notely && ./notely
 
 You do *not* need to set up a database or any interactivity on the webpage yet. Instructions for that will come later in the course!
 
-"Gerald's version of Boot.dev's Notely app.
+Gerald's version of Boot.dev's Notely app.
+
+---
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/codemarquis">Gerald</a>
+</p>
