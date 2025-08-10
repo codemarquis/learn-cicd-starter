@@ -56,8 +56,7 @@ jobs:
 
       # Step 9: Run database migrations
       - name: Run database migrations
-        run: |
-          $HOME/go/bin/goose -dir db/migrations postgres "$DATABASE_URL" up
+        run: ./scripts/migrateup.sh
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
